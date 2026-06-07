@@ -84,6 +84,9 @@ PY
 echo "[entrypoint] Seeding example scenes (first run only)..."
 python manage.py seed_examples || echo "[entrypoint]   seed_examples failed (non-fatal); continuing"
 
+echo "[entrypoint] Enabling self-host feature flags..."
+python manage.py seed_feature_flags || echo "[entrypoint]   seed_feature_flags failed (non-fatal); continuing"
+
 echo "[entrypoint] Collecting static files..."
 python manage.py collectstatic --noinput
 
